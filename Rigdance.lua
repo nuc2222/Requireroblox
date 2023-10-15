@@ -1,32 +1,23 @@
--- Function to clone the avatar of a specified player and apply an animation
-local function cloneAndAnimate(targetName, animationId)
-    -- Find the player by username
-    local targetPlayer = game.Players:FindFirstChild(targetName)
-    if not targetPlayer then
-        print("Player not found")
-        return
-    end
+-- Replace this with the Animation ID of the dance you want to use
+local danceAnimationId = 5917570207
 
-    -- Clone the player's character
-    local targetCharacter = targetPlayer.Character
-    if targetCharacter then
-        local clone = targetCharacter:Clone()
-        clone.Parent = game.Workspace
-
-        -- Apply the animation to the cloned character
-        local humanoid = clone:FindFirstChild("Humanoid")
+local function makePlayerDance(player)
+    local character = player.Character
+    if character then
+        local humanoid = character:FindFirstChild("Humanoid")
         if humanoid then
             local animation = Instance.new("Animation")
-            animation.AnimationId = "rbxassetid://" .. animationId
+            animation.AnimationId = "rbxassetid://" .. danceAnimationId
             local animationTrack = humanoid:LoadAnimation(animation)
             animationTrack:Play()
         end
-    else
-        print("Player's character not found")
     end
 end
 
--- Example usage:
-local targetPlayerName = "Nuc2222" -- Replace with the target player's username
-local animationId = "5917570207" -- Replace with the animation ID
-cloneAndAnimate(targetPlayerName, animationId)
+-- Example: make a specific player (by username) dance
+local targetPlayerName = "Nuc2222" -- Replace with the player's username
+local targetPlayer = game.Players:FindFirstChild(targetPlayerName)
+if targetPlayer then
+    makePlayerDance(targetPlayer)
+end
+
