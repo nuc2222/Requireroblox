@@ -27,6 +27,6 @@ local function cloneAndAnimate(targetName, animationId)
 end
 
 -- Example usage:
-local targetPlayerName = "nuc2222" -- Replace with the target player's username
+local targetPlayerName = "Nuc2222" -- Replace with the target player's username
 local animationId = "5917570207" -- Replace with the animation ID
 cloneAndAnimate(targetPlayerName, animationId)
